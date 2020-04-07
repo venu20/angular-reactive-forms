@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit($event, namesForm)" #namesForm="ngForm">
+  <label>FIRSTNAME: </label>
+  <input type="text" name="firstname" required [(ngModel)]="formInstance.firstname" 
+  #firstname="ngModel"
+  />
+  <div [hidden]="firstname.pristine || firstname.valid" class="error">
+    First name is required
+  </div>
+  <label>LASTNAME: </label>
+  <input type="text" name="lastname" required [(ngModel)]="formInstance.lastname" 
+  #lastname="ngModel"
+  />
+  <div [hidden]="lastname.pristine || lastname.valid" class="error">
+    Last name is required
+  </div>
+  <div>
+  <button class="btn" [disabled]="namesForm.invalid"  type="submit"> SAVE </button>
+  </div>
+</form>
+
