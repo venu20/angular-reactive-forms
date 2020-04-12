@@ -1,0 +1,27 @@
+<form [formGroup]="employee">
+	<div>
+		<label>FIRSTNAME: </label>
+		<input type="text" [ngClass]="{'error': firstname.touched && firstname.invalid,
+    'success': firstname.touched && firstname.valid}" [formControl]="employee.get('firstname')">
+		<div *ngIf="firstname.touched && firstname.errors?.required" class="err">Please enter firstname</div>
+	</div>
+	<div>
+		<label>LASTNAME: </label>
+		<input type="text" [formControl]="employee.get('lastname')">
+		<div *ngIf="lastname.touched && lastname.errors?.required" class="err">
+      Please enter lastname</div>
+	</div>
+	<div>
+		<label>PHONE: </label>
+		<input type="tel" [formControl]="employee.get('phone')">
+		<div *ngIf="employee.get('phone').touched && employee.get('phone').errors?.cell" class="err">
+      Please enter valid phone number
+    </div>
+	</div>
+  <div class="preferred" [formGroup]="employee.get('preferred')">
+    <input type="radio" [formControl]="employee.get('preferred').get('phone')"> 
+    <label>Cell</label>
+    <input type="radio" [formControl]="employee.get('preferred').get('email')"> 
+    <label>Email</label>
+  </div>
+</form>

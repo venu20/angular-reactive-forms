@@ -11,10 +11,11 @@
   #lastname="ngModel"
   />
   <div [hidden]="lastname.pristine || lastname.valid" class="error">
-    Last name is required
+    Last name is required!
   </div>
   <div>
   <button class="btn" [disabled]="namesForm.invalid"  type="submit"> SAVE </button>
   </div>
 </form>
+<app-demo-reactive-forms></app-demo-reactive-forms>
 
